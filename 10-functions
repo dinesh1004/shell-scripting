@@ -18,7 +18,7 @@ validate $? "mysql"
 
 
 dnf install nginx -y
-vaildate $? "nginx"
+validate $? "nginx"
 
 dnf install python3 -y
-vaildate $? "python3"
+validate $? "python3"
