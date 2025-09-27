@@ -4,7 +4,7 @@ G="\e[32m"
 Y="\e[33m"
 folder="/var/log/shell-scripting"
 script=$($0)
-logs-file="$folder/$script.log"
+file="$folder/$script.log"
 mkdir -p $folder
 echo "this script has started at : $(date)"
 userid=$(id -u)
@@ -21,25 +21,25 @@ validate(){
     fi
 }
 
-dnf list installed mysql &>>$logs-file
+dnf list installed mysql &>>$file
 if [ $? -ne 0 ]; then
 
-    dnf install mysql -y &>>$logs-file
+    dnf install mysql -y &>>$file
     validate $? "mysql"
 else 
     echo -e "mysql is already exist........ $Y skipping $N"
 fi
 
-dnf list installed mysql &>>$logs-file
+dnf list installed mysql &>>$file
 if [ $? -ne 0 ]; then       
-    dnf install nginx -y &>>$logs-file
+    dnf install nginx -y &>>$file
     validate $? "nginx"
 else 
     echo -e "nginx is already exist.......$Y skipping $N"
 fi
-dnf list installed mysql &>>$logs-file
+dnf list installed mysql &>>$file
 if [ $? -ne 0 ]; then  
-    dnf install python3 -y &>>$logs-file
+    dnf install python3 -y &>>$file
     validate $? "python3"
 else 
     echo -e "python3 is already exist.....$Y skipping $N"
