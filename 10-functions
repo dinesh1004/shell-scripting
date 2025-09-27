@@ -12,8 +12,10 @@ validate(){
         echo "installation of $2 is SUCCESS"
     fi
 }
+
 dnf install mysql -y
-vaildate $? "mysql"
+validate $? "mysql"
+
 
 dnf install nginx -y
 vaildate $? "nginx"
