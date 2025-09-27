@@ -1,0 +1,46 @@
+#!bin/bash
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+folder="/var/log/shell-scripting"
+script=$($0)
+logs-file="$folder/$script.log"
+mkdir -p $folder
+echo "this script has started at : $(date)"
+userid=$(id -u)
+if [ $userid -ne 0 ]; then
+    echo "ERROR: please run this script with root privileges"
+    exit 1
+fi
+validate(){
+    if [ $1 -ne 0 ]; then
+        echo -e "installation of $2 is $R failed $N" 
+        exit 1
+    else 
+        echo -e "installation of $2 is $G success $N"
+    fi
+}
+
+dnf list installed mysql &>>$logs-file
+if [ $? -ne 0 ]; then
+
+    dnf install mysql -y &>>$logs-file
+    validate $? "mysql"
+else 
+    echo -e "mysql is already exist........ $Y skipping $N"
+fi
+
+dnf list installed mysql &>>$logs-file
+if [ $? -ne 0 ]; then       
+    dnf install nginx -y &>>$logs-file
+    validate $? "nginx"
+else 
+    echo -e "nginx is already exist.......$Y skipping $N"
+fi
+dnf list installed mysql &>>$logs-file
+if [ $? -ne 0 ]; then  
+    dnf install python3 -y &>>$logs-file
+    validate $? "python3"
+else 
+    echo -e "python3 is already exist.....$Y skipping $N"
+fi
