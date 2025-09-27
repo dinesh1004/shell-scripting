@@ -3,9 +3,9 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 folder="/var/log/shell-scripting"
-script=$($0)
+script=$( echo $0 )
 file="$folder/$script.log"
-mkdir -p $folder
+mkdir -p $folder    
 echo "this script has started at : $(date)"
 userid=$(id -u)
 if [ $userid -ne 0 ]; then
