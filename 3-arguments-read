@@ -1,0 +1,8 @@
+#!/bin/bash
+echo "please enter the passwor"
+read PIN_NUMBER
+echo "pin entered is $PIN_NUMBER"
+
+
+
+
