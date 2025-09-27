@@ -1,4 +1,5 @@
 #!/bin/bash
-echo "hello world "
-echo "My name is velpula Dinesh"
-echo "I started learning shell scripting"
+person1=ramesh
+person2=rajesh
+echo " $person1 : hi $person2 "
+echo " $person2 : hello $person1 " 
