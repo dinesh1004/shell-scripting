@@ -10,6 +10,7 @@ validate(){
         exit 1
     else 
         echo "installation of $2 is SUCCESS"
+    fi
 }
 dnf install mysql -y
 vaildate $? "mysql"
