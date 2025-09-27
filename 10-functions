@@ -1,0 +1,21 @@
+#!bin/bash
+userid=$(id -u)
+if [ $userid -ne 0 ]; then
+    echo "ERROR: please run this script with root privileges"
+    exit 1
+fi
+validate(){
+    if [ $1 -ne 0 ]; then
+        echo "ERROR: installation of $2 is failed"
+        exit 1
+    else 
+        echo "installation of $2 is SUCCESS"
+}
+dnf install mysql -y
+vaildate $? "mysql"
+
+dnf install nginx -y
+vaildate $? "nginx"
+
+dnf install python3 -y
+vaildate $? "python3"
