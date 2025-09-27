@@ -4,7 +4,7 @@ if [ $userid -ne 0 ]; then
 	echo "please run the script with root user"
 	exit 1
 fi
-dnt install nginx -y
+dnf install nginx -y
 if [ $? -ne 0 ]; then 
 	echo "ERROR: installation of nginx is failed"
 	exit 1
