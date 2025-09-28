@@ -6,7 +6,7 @@ folder="/var/log/shell-scripting"
 script=$( echo $0 )
 file="$folder/$script.log"
 mkdir -p $folder    
-echo "Script started executed at: $(date)"  
+echo "Script started executed at: $(date)" | tee -a $file
 userid=$(id -u)
 if [ $userid -ne 0 ]; then
     echo "ERROR: please run this script with root privileges"
@@ -14,10 +14,10 @@ if [ $userid -ne 0 ]; then
 fi
 validate(){
     if [ $1 -ne 0 ]; then
-        echo -e "installation of $2 is $R failed $N" 
+        echo -e "installation of $2 is $R failed $N" | tee -a $file
         exit 1
     else 
-        echo -e "installation of $2 is $G success $N"
+        echo -e "installation of $2 is $G success $N" | tee -a $file
     fi
 }
 
@@ -28,7 +28,7 @@ if [ $? -ne 0 ]; then
     dnf install mysql -y &>>$file
     validate $? "mysql"
 else 
-    echo -e "mysql is already exist........$Y skipping $N"
+    echo -e "mysql is already exist........$Y skipping $N" | tee -a $file
 fi
 
 
@@ -37,7 +37,7 @@ if [ $? -ne 0 ]; then
     dnf install nginx -y &>>$file
     validate $? "nginx"
 else 
-    echo -e "nginx is already exist.......$Y skipping $N"
+    echo -e "nginx is already exist.......$Y skipping $N" | tee -a $file
 fi
 
 dnf list installed python3 &>>$file
@@ -45,5 +45,5 @@ if [ $? -ne 0 ]; then
     dnf install python3 -y &>>$file
     validate $? "python3"
 else 
-    echo -e "python3 is already exist.....$Y skipping $N"
+    echo -e "python3 is already exist.....$Y skipping $N" | tee -a $file
 fi
