@@ -37,13 +37,13 @@ if [ $? -ne 0 ]; then
     validate $? "mysql"
 
 else
-    echo -e "mysql is already exist.....$Y skipping $N"
+    echo -e "mysql is already exist..... skipping $N"
 fi
 dnf list installed python &>>$file
 if [ $? -ne 0 ]; then
     dnf install python3 -y
     validate $? "python3" &>>$file
 else
-    echo -e "python is already exist.....$Y skipping $N"
+    echo -e "python3 is already exist..... skipping $N"
 fi
 
