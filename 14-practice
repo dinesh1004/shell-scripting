@@ -6,7 +6,7 @@ G="\e[32m"
 Y="\e[33m"
 folder-path="/var/log/shell-scripting"
 mkdir -p $folder-path
-script-name=$( echo $0 )
+script=$( echo $0 )
 file="$folder-path/$script-name.log"
 echo "this script has started running at : $(date)"
 
