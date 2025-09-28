@@ -15,12 +15,12 @@ fi
 
 }
 
-npm install nginx -y
+dnf install nginx -y
 validate $? "nginx"
 
-npm install mysql -y
+dnf install mysql -y
 validate $? "mysql"
 
-npm install python3 -y
+dnf install python3 -y
 validate $? "python3"
 
