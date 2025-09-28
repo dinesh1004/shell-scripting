@@ -4,10 +4,10 @@ userid=$(id -u)
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
-folder-path="/var/log/shell-scripting"
-mkdir -p $folder-path
+folder="/var/log/shell-scripting"
+mkdir -p $folder
 script=$( echo $0 )
-file="$folder-path/$script-name.log"
+file="$folder/$script.log"
 echo "this script has started running at : $(date)"
 
 
