@@ -6,7 +6,7 @@ folder="/var/log/shell-scripting"
 script=$( echo $0 )
 file="$folder/$script.log"
 mkdir -p $folder    
-echo "Script started executed at: $(date)"
+echo "Script started executed at: $(date)"  
 userid=$(id -u)
 if [ $userid -ne 0 ]; then
     echo "ERROR: please run this script with root privileges"

@@ -1,0 +1,26 @@
+#!bin/bash
+
+userid=$(id -u)
+if [ $userid -ne 0 ]; then 
+    echo "ERROR:please run this script with root provileges"
+    exit 1
+fi
+validate(){
+if [ $1 -ne 0 ]; then
+    echo "ERROR: installation of $2 is failed"
+    exit 1
+else 
+    echo " installation of $2 is success"
+
+
+}
+
+npm install nginx -y
+validate $? "nginx"
+
+npm install mysql -y
+validate $? "mysql"
+
+npm install python3 -y
+validate $? "python3"
+
