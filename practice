@@ -4,7 +4,7 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
-log_folder="/var/logs/mylogs"
+log_folder="/var/log/mylogs"
 echo "Script started executed at: $(date)" | tee -a $file
 log_file="$log_folder/$script.log"
 mkdir -p $log_folder
