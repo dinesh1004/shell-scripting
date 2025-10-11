@@ -9,6 +9,30 @@ script=$( echo $0)
 log_file="$folder/$script.log"
 mkdir -p $folder
 echo "this scrip has started at : $(date)"
+if [ $userid -ne 0 ]; then
+    echo "ERROR please rub the script with sudo privillages"
+    exit 1
+fi
+validate(){
+    if [ $1 -ne 0 ]; then
+        echo -e "installation of $2 is $R failed $N" | tee -a $log_file
+        exit 1
+    else
+        echo -e "installation of $2 is $G success $N" | tee -a $log_file
+    fi
+}
+for package in $@
+do
+    #check if package is already exist
+    dnf list installed $package 
+    # if exit status is 0 then package is already installed else need to install it
+    if [ $? -ne 0 ]; then
+        dnf install $package -y &>>$log_file
+        validate ( $? $package)
+    else
+        echo "$package is already installed.... $y skipping $N"
+    fi
+done
 
 
 
