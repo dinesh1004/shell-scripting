@@ -7,7 +7,6 @@ N="\e[0m"
 log_floder="/var/logs/mylogs"
 echo "Script started executed at: $(date)" | tee -a $file
 log_file="$log_folder/$script".log
-echo "script    started executing at: $date"
 mkdir -p $log_folder
 
 if [ $userid -ne 0 ]; then
