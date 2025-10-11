@@ -3,10 +3,12 @@ userid=$( id -u)
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
+N="\e[0m"
 folder="/var/log/shell-script"
 script=$( echo $0)
 log_file="$folder/$script.log"
 mkdir -p $folder
 echo "this scrip has started at : $(date)"
+
 
 
