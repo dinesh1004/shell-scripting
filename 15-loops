@@ -10,7 +10,7 @@ log_file="$folder/$script.log"
 mkdir -p $folder
 echo "this scrip has started at : $(date)"
 if [ $userid -ne 0 ]; then
-    echo "ERROR please rub the script with sudo privillages"
+    echo "ERROR please run the script with sudo privillages"
     exit 1
 fi
 validate(){
