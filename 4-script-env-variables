@@ -1,2 +1,7 @@
 #!/bin/bash
 echo "course name is : $course"
+
+#--> .bashrc using vim editor
+# enter variable ( export course="shell scripting")
+#source .bashrc
+# now the varibale is set we can user it anywhere
