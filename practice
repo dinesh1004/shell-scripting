@@ -7,7 +7,7 @@ N="\e[0m"
 
 if [ $userid -ne 0 ]; then
     echo " ERROR please rub the script with sudo privillages"
-    exit1
+    exit 1
 fi 
 validate(){
     if [ $1 -ne 0 ]; then
