@@ -21,8 +21,6 @@ validate(){
         echo -e "installation of $2......$G success $N" | tee -a $log_file
     fi
 }
-
-}
 for package in $@
 do
     dnf list installed $package 
