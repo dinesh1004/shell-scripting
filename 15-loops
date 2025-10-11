@@ -13,21 +13,15 @@ if [ $userid -ne 0 ]; then
     echo "ERROR please run the script with sudo privillages"
     exit 1
 fi
-# validate(){
-#     if [ $1 -ne 0 ]; then
-#         echo -e "installation of $2...... $R failed $N" | tee -a $log_file
-#         exit 1
-#     else
-#         echo -e "installation of $2......$G success $N" | tee -a $log_file
-#     fi
-#}
-VALIDATE(){ # functions receive inputs through args just like shell script args
+validate(){
     if [ $1 -ne 0 ]; then
-        echo -e "Installing $2 ... $R FAILURE $N" | tee -a $log_file
+        echo -e "installation of $2...... $R failed $N" | tee -a $log_file
         exit 1
     else
-        echo -e "Installing $2 ... $G SUCCESS $N" | tee -a $log_file
+        echo -e "installation of $2......$G success $N" | tee -a $log_file
     fi
+}
+
 }
 for package in $@
 do
@@ -36,7 +30,7 @@ do
         dnf install $package -y &>>$log_file
         validate $? "$package"
     else
-        echo "$package is already installed.... $y skipping $N"
+        echo -e "$package is already installed.... $y skipping $N"
     fi
 done
 
