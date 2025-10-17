@@ -1,0 +1,36 @@
+#!bin/bash
+userid=$(id -u)
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
+script=$( echo $0 | cut -d "-" -f2)
+log_folder="/var/log/practice"
+mkdir -p $log_folder
+log_file="$log_folder/$script.log"
+
+if [ $userid -ne 0 ]; then
+    echo " ERROR : please run the script with root user"
+    exit 1
+fi 
+
+validate(){
+    if [ $1 -ne 0 ]; then
+        echo -e "installation of $2 is $R failed: $N"
+        exit 1
+    else 
+        echo -E "installation of $2 is $G success $N"
+    fi
+}
+
+for package in $@
+do 
+    dnf list installed $package
+    if [ $? -ne 0 ]; then
+        dnf install $package -y
+        validate $? "$package"
+    else 
+        echo -e "$package is already installed......$Y skipping $N"
+
+done 
+

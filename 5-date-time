@@ -1,5 +1,5 @@
 #!/bin/bash
-date=$(date)
+date=$(date) #this will give the date and time 
 echo $date
 start_time=$(date +%s)
 sleep 10

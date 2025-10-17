@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "course name is : $course"
+echo "course name is : $course" #environment variable
 
 #--> .bashrc using vim editor
 # enter variable ( export course="shell scripting")

@@ -1,5 +1,5 @@
 #!/bin/bash
-person1=$1
+person1=$1 #we will get these cvariables values from arguments
 person2=$2
 echo "$person1 : welcome to Alaska $person2"
 echo "$person2 : Thank you $person1, finally no on zoom webinar"

@@ -1,7 +1,7 @@
 #!/bin/bash
-echo "script name: $0"
-echo "present workin directory: $PWD"
-echo "who is running : $USER"
-echo "PID of this scriptis : $$"
+echo "script name: $0" #this will give sctipt name
+echo "present workin directory: $PWD" #presetn working directory
+echo "who is running : $USER" #user name
+echo "PID of this scriptis : $$" #PID of the script
 sleep 10 &
-echo "PID of last command in background: $!"
+echo "PID of last command in background: $!" #PID of last command

@@ -9,7 +9,6 @@ script=$( echo $0 )
 echo "Script started executed at: $(date)" | tee -a $file
 log_file="$log_folder/$script.log"
 mkdir -p $log_folder
-
 if [ $userid -ne 0 ]; then
     echo "ERROR please rub the script with sudo privillages"
     exit 1
